@@ -3,7 +3,7 @@
 
  namespace BookExchangeApi.Models
 {
-    public class SavedBooks
+    public class SavedBook
     {
         [ForeignKey("BookId")] [Required] public int BookId { get; set; }
         [ForeignKey("StudentId")] [Required] public int StudentId { get; set; }
