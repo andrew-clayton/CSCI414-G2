@@ -5,7 +5,7 @@ namespace BookExchangeApi.Models
 {
     public class Course
     {
-        [Key] public int CourseId { get; }
+        [Key] public int CourseId { get; set; }
         [Required] public string CourseName { get; set; }
         public int CourseNumber { get; set; }
         [StringLength(150)] public string Professor { get; set; }

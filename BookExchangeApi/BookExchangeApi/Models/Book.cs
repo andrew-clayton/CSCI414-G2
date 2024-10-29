@@ -4,7 +4,7 @@ namespace BookExchangeApi.Models
 {
     public class Book
     {
-        [Key] public int BookId { get; }
+        [Key] public int BookId { get; set; }
         [Required][StringLength(50)] public string Title { get; set; }
         [StringLength(200)] public string Description { get; set; }
         [StringLength(200)] public string Author { get; set; }

@@ -9,6 +9,6 @@ namespace BookExchangeApi.Models
         [Required][ForeignKey("StudentId")] public int StudentId { get; set; }
         [Required][ForeignKey("BookOfferingId")] public int BookOfferingId { get; set; }
         [Required] public NotificationType NotificationType { get; set; }
-        [Required] private DateTimeOffset Timestamp { get; set; }
+        [Required] public DateTimeOffset Timestamp { get; set; }
     }
 }
