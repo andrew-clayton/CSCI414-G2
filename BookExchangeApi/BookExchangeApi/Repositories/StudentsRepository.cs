@@ -11,7 +11,7 @@ namespace BookExchangeApi.Repositories
 
         public StudentsRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("PostgresConnection");
         }
 
         public async Task CreateStudentAsync(Student student)

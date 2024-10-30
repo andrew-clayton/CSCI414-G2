@@ -1,6 +1,3 @@
-CREATE DATABASE book_exchange;
-\c book_exchange; -- connect to this db
-
 -- Table for Schools
 CREATE TABLE Schools (
     SchoolId SERIAL PRIMARY KEY,

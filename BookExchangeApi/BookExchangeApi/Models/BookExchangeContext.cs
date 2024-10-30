@@ -2,7 +2,7 @@
 
 namespace BookExchangeApi.Models
 {
-    public class BookExchangeContext : DbContext
+    public class BookExchangeContext(DbContextOptions<BookExchangeContext> options) : DbContext(options)
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Book> Books { get; set; }
