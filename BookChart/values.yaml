@@ -1,0 +1,45 @@
+api:
+  image: andrewclayton16/BookExchangeApi
+  pullPolicy: IfNotPresent
+  port: 80
+
+postgres:
+  image: postgres:16
+  pullPolicy: IfNotPresent
+  port: 5432
+  username: group2
+  password: group2
+  database: book_exchange
+  storage: 3Gi
+  
+mongo:
+  image: mongo:latest
+  pullPolicy: IfNotPresent
+  username: group3
+  password: group3
+  port: 27017
+
+environment:
+  db_host_postgres: postgres
+  db_host_mongo: mongo
+
+# TODO: delete rest of the file?
+
+# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+ingress:
+  enabled: false
+  className: ""
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+
+#This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80

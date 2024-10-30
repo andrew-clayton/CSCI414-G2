@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-exchange-api
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: book-exchange=api
+  template:
+    metedata:
+      matchLabels:
+        app: book-exchange-api
+    spec:
+      containers:
+        - name: api
+        image: {{ .Values.api.image }}
+        env:
+          - name: DB_HOST_POSTGRES
+            value: {{ .Values.environment.db_host_postgres }}
+          - name: DB_HOST_MONGO
+            value: {{ .Values.environment.db_host_mongo }}
+        ports:
+          - containerPort: {{ .Values.api.port }}

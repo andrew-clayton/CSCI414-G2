@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-exchange-api
+spec:
+  ports: 
+    - port: 80
+      targetPort: {{ .Values.api.port }}
+  selector:
+    app: book-exchange-api
+  type: LoadBalancer
