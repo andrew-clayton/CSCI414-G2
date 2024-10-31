@@ -17,6 +17,7 @@ builder.Services.AddScoped<NotificationsRepository>();
 builder.Services.AddScoped<SavedBooksRepository>();
 builder.Services.AddScoped<SchoolsRepository>();
 builder.Services.AddScoped<StudentsRepository>();
+builder.Services.AddScoped<BooksRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
