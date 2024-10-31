@@ -1,4 +1,5 @@
 using BookExchangeApi.Models;
+using BookExchangeApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,13 @@ if (string.IsNullOrEmpty(postgresConnectionString))
     throw new Exception("Invalid PostgreSQL Connection String");
 }
 builder.Services.AddDbContext<BookExchangeContext>(options => options.UseNpgsql(postgresConnectionString));
+builder.Services.AddScoped<BookOfferingsRepository>();
+builder.Services.AddScoped<CoursesRepository>();
+builder.Services.AddScoped<NotificationsRepository>();
+builder.Services.AddScoped<SavedBooksRepository>();
+builder.Services.AddScoped<SchoolsRepository>();
+builder.Services.AddScoped<StudentsRepository>();
+builder.Services.AddScoped<BooksRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); TODO: uncomment
 
 app.UseAuthorization();
 

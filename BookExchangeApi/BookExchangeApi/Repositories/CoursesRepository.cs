@@ -11,7 +11,7 @@ namespace BookExchangeApi.Repositories
 
         public CoursesRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("PostgresConnection");
         }
 
         public async Task CreateCourseAsync(Course course)

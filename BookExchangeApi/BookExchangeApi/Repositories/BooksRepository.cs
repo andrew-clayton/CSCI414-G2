@@ -1,11 +1,7 @@
 ﻿// File: Repositories/BooksRepository.cs
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Npgsql;
-using Microsoft.Extensions.Configuration;
 using BookExchangeApi.Models;
+using Npgsql;
 
 namespace BookExchangeApi.Repositories
 {
@@ -15,7 +11,7 @@ namespace BookExchangeApi.Repositories
 
         public BooksRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("PostgresConnection");
         }
 
         public async Task CreateBookAsync(Book book)
